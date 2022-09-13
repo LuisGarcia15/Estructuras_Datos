@@ -9,6 +9,7 @@ public class Empleado implements Comparable<Empleado>{
 	private double sueldoBase;
 	private int anioIngreso;
 	
+	
 	public Empleado(int numTrabajador, String nombre, String apellidoPaterno, String apellidoMaterno, double hrExtra,
 			double sueldoBase, int anioIngreso) {
 		this.numTrabajador = numTrabajador;
