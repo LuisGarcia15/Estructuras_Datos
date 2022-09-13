@@ -2,13 +2,13 @@ package aragon.unam.estructuras;
 
 public class Array2DADT<T> {
 
-	private int filas;
-	private int columnas;
+	private int fila;
+	private int columna;
 	private ArrayADT<ArrayADT<T>> array;
 
 	public Array2DADT(int filas, int columnas) {
-		this.filas = filas;
-		this.columnas = columnas;
+		this.fila = filas;
+		this.columna = columnas;
 		array = new ArrayADT<>(columnas);
 
 		for (int i = 0; i < array.getLength(); i++) {
@@ -17,11 +17,11 @@ public class Array2DADT<T> {
 	}
 
 	public int getFilas() {
-		return this.filas;
+		return this.fila;
 	}
 
 	public int getColumnas() {
-		return this.columnas;
+		return this.columna;
 	}
 
 	public void setElemento(T dato, int filas, int columnas) {
@@ -33,8 +33,8 @@ public class Array2DADT<T> {
 	}
 
 	public void limpiar(T dato) {
-		for (int i = 0; i < this.filas; i++) {
-			for (int j = 0; j < this.columnas; j++) {
+		for (int i = 0; i < this.fila; i++) {
+			for (int j = 0; j < this.columna; j++) {
 				this.setElemento(dato, i, j);
 				;
 			}
@@ -44,9 +44,9 @@ public class Array2DADT<T> {
 	@Override
 	public String toString() {
 		String array = "";
-		for (int i = 0; i < this.filas; i++) {
-			for (int j = 0; j < this.columnas; j++) {
-				array += this.getElemento(i, j) + " ";
+		for (int i = 0; i < this.fila; i++) {
+			for (int j = 0; j < this.columna; j++) {
+				array += this.getElemento(i, j) + " ["+i+","+j+"]   ";
 			}
 			array += "\n";
 		}
