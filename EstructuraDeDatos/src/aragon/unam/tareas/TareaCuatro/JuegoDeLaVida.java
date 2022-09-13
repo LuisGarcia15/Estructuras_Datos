@@ -99,42 +99,42 @@ public class JuegoDeLaVida {
 
 	private void evaluarVecino(int filas, int columnas) {
 		String celda = this.celdas.getElemento(filas, columnas);
-		if (celda.equals("|☻|")) {
+		if (celda.equals("+")) {
 			this.celulasVivas++;
 		}
 	}
 
 	private String aplicarReglas(int filas, int columnas) {
 		String celula = this.celdas.getElemento(filas, columnas);
-		if (celula.equals("|☻|")) {
+		if (celula.equals("+")) {
 			if (this.celulasVivas == 2 || this.celulasVivas == 3) {
 				this.celulasVivas = 0;
-				return "|☻|";
+				return "+";
 			}
 		}
 
-		if (celula.equals("|☻|")) {
+		if (celula.equals("+")) {
 			if (this.celulasVivas == 0 || this.celulasVivas == 1) {
 				this.celulasVivas = 0;
-				return "|☺|";
+				return "-";
 			}
 		}
 
-		if (celula.equals("|☻|")) {
+		if (celula.equals("+")) {
 			if (this.celulasVivas >= 4) {
 				this.celulasVivas = 0;
-				return "|☺|";
+				return "-";
 			}
 		}
 
-		if (celula.equals("|☺|")) {
+		if (celula.equals("-")) {
 			if (this.celulasVivas == 3) {
 				this.celulasVivas = 0;
-				return "|☻|";
+				return "+";
 			}
 		}
 		this.celulasVivas = 0;
-		return "|☺|";
+		return "-";
 	}
 
 	@Override

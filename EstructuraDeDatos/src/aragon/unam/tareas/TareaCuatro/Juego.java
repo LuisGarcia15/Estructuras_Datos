@@ -24,7 +24,7 @@ public class Juego {
 		System.out.println("\n");
 		for(int i = 0; i < this.objeto.getCeldas().getFilas(); i++) {
 			for(int j = 0; j < this.objeto.getCeldas().getColumnas(); j++) {
-				this.objeto.getCeldas().setElemento("|☺|", i, j);
+				this.objeto.getCeldas().setElemento("-", i, j);
 			}	
 		}
 		
@@ -35,7 +35,7 @@ public class Juego {
 			fila = Integer.parseInt(s.nextLine());
 			System.out.println("Ingresa una coordenada para la columna de la celula #" + numeroDeCelulas + ":");
 			columna = Integer.parseInt(s.nextLine());
-			objeto.getCeldas().setElemento("|☻|", fila, columna);
+			objeto.getCeldas().setElemento("+", fila, columna);
 			System.out.println("¿Desea ingresar más células vivas? Ingrese la letra c para seguir añadiendo o "
 					+ "ingrese la letra f para salir.");
 			salida = s.nextLine();
@@ -93,7 +93,7 @@ public class Juego {
 	private boolean evaluarArrayADT() {
 		for(int filas = 0; filas < this.objeto.getCeldas().getFilas(); filas++) {
 			for(int columnas = 0; columnas < this.objeto.getCeldas().getColumnas(); columnas++) {
-				if(this.objeto.getCeldas().getElemento(filas, columnas).equals("|☻|")) {
+				if(this.objeto.getCeldas().getElemento(filas, columnas).equals("+")) {
 					return true;
 				}
 			}	
