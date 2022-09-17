@@ -63,6 +63,8 @@ public class PruebasListaLigadaADT {
         lis.transversal();
         lis.agregarAlInicio(33);
         lis.transversal();
+        lis.agregarAlInicio(34);
+        lis.transversal();
         System.out.println(lis.getTamanio());
         lis.eliminar(1);
         lis.transversal();
