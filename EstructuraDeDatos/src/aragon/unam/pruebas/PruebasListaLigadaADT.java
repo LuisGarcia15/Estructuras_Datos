@@ -55,7 +55,22 @@ public class PruebasListaLigadaADT {
         System.out.println(l.buscarElemento(88));
         l.transversal();
         System.out.println("Actualiza el objeto de un nodo, lo encuentra por el objeto que tiene antes de cambiarlo");
-        l.actualizar(79, 200);
+        l.actualizar(15, 200);
         l.transversal();
+        ListaLigadaADT<Integer> lis = new ListaLigadaADT<>();
+        System.out.println("e");
+        lis.eliminar(0);
+        lis.transversal();
+        lis.agregarAlInicio(33);
+        lis.transversal();
+        System.out.println(lis.getTamanio());
+        lis.eliminar(1);
+        lis.transversal();
+        lis.agregarAlFinal(1);
+        lis.agregarAlFinal(2);
+        lis.agregarAlFinal(3);
+        lis.transversal();
+        lis.agregarDespuesDe(4, 3);
+        lis.transversal();
 	}
 }

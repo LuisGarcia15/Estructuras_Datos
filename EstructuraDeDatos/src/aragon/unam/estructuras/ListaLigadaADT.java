@@ -48,12 +48,14 @@ public class ListaLigadaADT<T> {
 	public void agregarDespuesDe(T valor, int posicion) {
 		Nodo nuevo = new Nodo(valor);
 		Nodo aux = this.head;
+		if(posicion > 1) {
 		for (int contador = 1; contador <= posicion - 1; contador++) {
 			aux = aux.getSiguiente();
 		}
 		nuevo.setSiguiente(aux.getSiguiente());
 		aux.setSiguiente(nuevo);
 		this.tamanio++;
+		}
 	}
 
 	public void eliminar(int posicion) {
@@ -63,13 +65,14 @@ public class ListaLigadaADT<T> {
 		int contador = 1;
 		if (posicion == 1) {
 			if (aux.getSiguiente() == null) {
-				this.head = new Nodo();
+				this.head = null;
 				this.tamanio--;
 			} else {
 				this.head = aux.getSiguiente();
 				this.tamanio--;
 			}
 		} else {
+			if(posicion > 1) {
 			while (bandera) {
 				if (contador == posicion) {
 					if (aux.getSiguiente() == null) {
@@ -86,6 +89,7 @@ public class ListaLigadaADT<T> {
 				aux2 = aux;
 				aux = aux.getSiguiente();
 			}
+		}
 		}
 	}
 
