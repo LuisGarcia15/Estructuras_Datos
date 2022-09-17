@@ -51,5 +51,11 @@ public class PruebasListaLigadaADT {
         System.out.println("Elimina el nodo de un indice dado");
         l.eliminar(1);
         l.transversal();
+        System.out.println("Devuelve el indice donde se encuentre el objeto");
+        System.out.println(l.buscarElemento(88));
+        l.transversal();
+        System.out.println("Actualiza el objeto de un nodo, lo encuentra por el objeto que tiene antes de cambiarlo");
+        l.actualizar(79, 200);
+        l.transversal();
 	}
 }
