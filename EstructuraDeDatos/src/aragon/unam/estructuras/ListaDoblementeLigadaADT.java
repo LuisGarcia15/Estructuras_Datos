@@ -1,53 +1,54 @@
 package aragon.unam.estructuras;
 
-public class ListaLigadaADT<T> {
-
-	Nodo<T> head;
-	int tamanio;
-
-	public ListaLigadaADT() {
+public class ListaDoblementeLigadaADT <T>{
+	private NodoDoble<T> head;
+	private int tamanio;
+	
+	public ListaDoblementeLigadaADT() {
 		this.head = null;
 		this.tamanio = 0;
 	}
-
+	
 	public boolean estaVacia() {
 		return this.head == null;
 	}
-
+	
 	public int getTamanio() {
 		return tamanio;
 	}
-
+	
 	public void agregarAlFinal(T valor) {
-		Nodo nuevo = new Nodo(valor);
-		if (this.estaVacia()) {
+		NodoDoble nuevo = new NodoDoble(valor);
+		if (this.head == null) {
 			this.head = nuevo;
 			this.tamanio++;
 		} else {
-			Nodo aux = this.head;
+			NodoDoble aux = this.head;
 			while (aux.getSiguiente() != null) {
 				aux = aux.getSiguiente();
 			}
 			aux.setSiguiente(nuevo);
+			nuevo.setPrevio(aux);
 			this.tamanio++;
 		}
 	}
-
+	
 	public void agregarAlInicio(T valor) {
-		Nodo nuevo = new Nodo(valor);
+		NodoDoble nuevo = new NodoDoble(valor);
 		if (this.estaVacia()) {
 			this.head = nuevo;
 			this.tamanio++;
 		} else {
 			nuevo.setSiguiente(this.head);
+			this.head.setPrevio(nuevo);
 			this.head = nuevo;
 			this.tamanio++;
 		}
 	}
-
+	
 	public void agregarDespuesDe(T valor, int posicion) {
-		Nodo nuevo = new Nodo(valor);
-		Nodo aux = this.head;
+		NodoDoble nuevo = new NodoDoble(valor);
+		NodoDoble aux = this.head;
 		if (posicion > 1) {
 			for (int contador = 1; contador <= posicion - 1; contador++) {
 				aux = aux.getSiguiente();
@@ -55,12 +56,14 @@ public class ListaLigadaADT<T> {
 		}
 			nuevo.setSiguiente(aux.getSiguiente());
 			aux.setSiguiente(nuevo);
+			aux.getSiguiente().setPrevio(nuevo);
+			nuevo.setPrevio(aux);
 			this.tamanio++;
 	}
-
+	
 	public void eliminar(int posicion) {
-		Nodo aux = this.head;
-		Nodo aux2 = aux;
+		NodoDoble aux = this.head;
+		NodoDoble aux2 = aux;
 		boolean bandera = true;
 		int contador = 1;
 		if (posicion == 1) {
@@ -68,6 +71,7 @@ public class ListaLigadaADT<T> {
 				this.head = null;
 				this.tamanio--;
 			} else {
+				aux.getSiguiente().setPrevio(null);
 				this.head = aux.getSiguiente();
 				this.tamanio--;
 			}
@@ -81,6 +85,7 @@ public class ListaLigadaADT<T> {
 							break;
 						} else {
 							aux2.setSiguiente(aux.getSiguiente());
+							aux.getSiguiente().setPrevio(null);
 							this.tamanio--;
 							break;
 						}
@@ -92,36 +97,38 @@ public class ListaLigadaADT<T> {
 			}
 		}
 	}
-
+	
 	public void eliminarElPrimero() {
 		if (this.head != null) {
-			Nodo aux = this.head;
+			NodoDoble aux = this.head;
+			aux.getSiguiente().setPrevio(null);
 			aux = aux.getSiguiente();
 			this.head = aux;
 			this.tamanio--;
 		}
 	}
-
+	
 	public void eliminarElFinal() {
 		if (this.getTamanio() == 1) {
 			this.head = null;
 			this.tamanio--;
 		} else {
 			if (this.getTamanio() > 1) {
-				Nodo aux = this.head;
-				Nodo aux2 = new Nodo();
+				NodoDoble aux = this.head;
+				NodoDoble aux2 = new NodoDoble();
 				while (aux.getSiguiente() != null) {
 					aux2 = aux;
 					aux = aux.getSiguiente();
 				}
 				aux2.setSiguiente(null);
+				aux.setPrevio(null);
 				this.tamanio--;
 			}
 		}
 	}
-
+	
 	public int buscarElemento(T dato) {
-		Nodo aux = this.head;
+		NodoDoble aux = this.head;
 		int contador = 1;
 		for (int i = 1; i <= this.tamanio; i++) {
 			if (aux.getDato() == dato) {
@@ -132,9 +139,9 @@ public class ListaLigadaADT<T> {
 		}
 		return 0;
 	}
-
+	
 	public void actualizar(T valorABuscar, T valorParaActualizar) {
-		Nodo aux = this.head;
+		NodoDoble aux = this.head;
 		for (int i = 1; i <= this.tamanio; i++) {
 			if (aux.getDato() == valorABuscar) {
 				aux.setDato(valorParaActualizar);
@@ -144,15 +151,15 @@ public class ListaLigadaADT<T> {
 		}
 
 	}
-
+	
 	public void transversal() {
-		Nodo curr_node = this.head;
+		NodoDoble curr_node = this.head;
+		System.out.print(null + " ");
 		while (curr_node != null) {
 			System.out.print(curr_node);
 			curr_node = curr_node.getSiguiente();
 		}
-		System.out.println(" " + curr_node);
+		System.out.println("<--> " + curr_node);
 		System.out.println("");
 	}
-
 }

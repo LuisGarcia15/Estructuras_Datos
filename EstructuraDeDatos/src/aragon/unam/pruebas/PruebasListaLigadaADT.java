@@ -58,7 +58,7 @@ public class PruebasListaLigadaADT {
         l.actualizar(15, 200);
         l.transversal();
         ListaLigadaADT<Integer> lis = new ListaLigadaADT<>();
-        System.out.println("e");
+        System.out.println("eeeeeeeeeeeeeeee");
         lis.eliminar(0);
         lis.transversal();
         lis.agregarAlInicio(33);
