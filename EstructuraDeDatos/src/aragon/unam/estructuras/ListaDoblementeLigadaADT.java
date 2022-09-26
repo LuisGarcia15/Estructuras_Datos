@@ -3,7 +3,7 @@ package aragon.unam.estructuras;
 public class ListaDoblementeLigadaADT <T>{
 	private NodoDoble<T> head;
 	private int tamanio;
-	
+
 	public ListaDoblementeLigadaADT() {
 		this.head = null;
 		this.tamanio = 0;
@@ -50,7 +50,7 @@ public class ListaDoblementeLigadaADT <T>{
 		NodoDoble nuevo = new NodoDoble(valor);
 		NodoDoble aux = this.head;
 		if (posicion > 1) {
-			for (int contador = 1; contador <= posicion - 1; contador++) {
+			for (int contador = 1; contador <= (posicion - 1); contador++) {
 				aux = aux.getSiguiente();
 			}
 		}

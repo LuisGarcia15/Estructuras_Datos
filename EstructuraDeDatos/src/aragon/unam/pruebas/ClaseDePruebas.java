@@ -7,6 +7,7 @@ import aragon.unam.estructuras.NodoDoble;
 
 public class ClaseDePruebas {
 	public static void main(String[] args) {
+		boolean bandera = true;
 		ListaDoblementeLigadaADT<Integer> i = new ListaDoblementeLigadaADT<>();
 		i.agregarAlFinal(2);
 		i.transversal();
@@ -14,7 +15,8 @@ public class ClaseDePruebas {
 		i.transversal();
 		i.agregarAlInicio(10);
 		i.transversal();
-		i.agregarDespuesDe(100, 1);
+		System.out.println("e");
+		i.agregarDespuesDe(10313,3);
 		i.transversal();
 		i.eliminar(2);
 		i.transversal();
@@ -32,6 +34,6 @@ public class ClaseDePruebas {
 		i.actualizar(4, 100);
 		i.transversal();
 		System.out.println(i.buscarElemento(100));
-		
 	}
+	
 }
