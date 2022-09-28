@@ -1,16 +1,18 @@
 package aragon.unam.estructuras;
 
-public class ListaDoblementeLigadaADT <T>{
+public class ListaDoblementeLigadaADT2DaVersion <T>{
 	private NodoDoble<T> head;
+	private NodoDoble<T> tail;
 	private int tamanio;
 
-	public ListaDoblementeLigadaADT() {
+	public ListaDoblementeLigadaADT2DaVersion(){
 		this.head = null;
+		this.tail = null;
 		this.tamanio = 0;
 	}
 	
 	public boolean estaVacia() {
-		return this.head == null;
+		return this.head == null && this.tail == null;
 	}
 	
 	public int getTamanio() {
@@ -21,6 +23,7 @@ public class ListaDoblementeLigadaADT <T>{
 		NodoDoble nuevo = new NodoDoble(valor);
 		if (this.head == null) {
 			this.head = nuevo;
+			this.tail = nuevo;
 			this.tamanio++;
 		} else {
 			NodoDoble aux = this.head;
@@ -29,6 +32,7 @@ public class ListaDoblementeLigadaADT <T>{
 			}
 			aux.setSiguiente(nuevo);
 			nuevo.setPrevio(aux);
+			this.tail = nuevo;
 			this.tamanio++;
 		}
 	}
@@ -37,6 +41,7 @@ public class ListaDoblementeLigadaADT <T>{
 		NodoDoble nuevo = new NodoDoble(valor);
 		if (this.estaVacia()) {
 			this.head = nuevo;
+			this.tail = nuevo;
 			this.tamanio++;
 		} else {
 			nuevo.setSiguiente(this.head);
@@ -54,6 +59,9 @@ public class ListaDoblementeLigadaADT <T>{
 				aux = aux.getSiguiente();
 			}
 		}
+			if(posicion == this.tamanio) {
+				this.tail = nuevo;
+			}
 			nuevo.setSiguiente(aux.getSiguiente());
 			aux.setSiguiente(nuevo);
 			aux.getSiguiente().setPrevio(nuevo);
@@ -69,6 +77,7 @@ public class ListaDoblementeLigadaADT <T>{
 		if (posicion == 1) {
 			if (aux.getSiguiente() == null) {
 				this.head = null;
+				this.tail = null;
 				this.tamanio--;
 			} else {
 				aux.getSiguiente().setPrevio(null);
@@ -99,6 +108,11 @@ public class ListaDoblementeLigadaADT <T>{
 					aux = aux.getSiguiente();
 				}
 			}
+			aux = this.head;
+			while(aux.getSiguiente() != null) {
+				aux = aux.getSiguiente();
+			}
+			this.tail = aux;
 		}
 	}
 	
@@ -106,6 +120,7 @@ public class ListaDoblementeLigadaADT <T>{
 		if (this.head != null) {
 			if(this.tamanio == 1) {
 				this.head = null;
+				this.tail = null;
 				this.tamanio--;
 			}else {
 			NodoDoble aux = this.head;
@@ -122,6 +137,7 @@ public class ListaDoblementeLigadaADT <T>{
 	public void eliminarElFinal() {
 		if (this.getTamanio() == 1) {
 			this.head = null;
+			this.tail = null;
 			this.tamanio--;
 		} else {
 			if (this.getTamanio() > 1) {//podria ser una instrucción redundante
@@ -132,6 +148,7 @@ public class ListaDoblementeLigadaADT <T>{
 					aux = aux.getSiguiente();
 				}
 				aux2.setSiguiente(null);
+				this.tail = aux2;
 				aux.setPrevio(null);
 				this.tamanio--;
 			}
@@ -163,7 +180,8 @@ public class ListaDoblementeLigadaADT <T>{
 
 	}
 	
-	public void transversal() {
+	public void transversal(boolean direccion) {
+		if(direccion) {
 		NodoDoble curr_node = this.head;
 		System.out.print(null + " ");
 		while (curr_node != null) {
@@ -172,5 +190,15 @@ public class ListaDoblementeLigadaADT <T>{
 		}
 		System.out.println("<--> " + curr_node);
 		System.out.println("");
+		}else {
+			NodoDoble curr_node = this.tail;
+			System.out.print(null + " ");
+			while (curr_node != null) {
+				System.out.print(curr_node);
+				curr_node = curr_node.getPrevio();
+			}
+			System.out.println("<--> " + curr_node);
+			System.out.println("");
+		}
 	}
 }

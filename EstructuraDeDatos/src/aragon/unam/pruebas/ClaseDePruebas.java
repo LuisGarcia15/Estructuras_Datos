@@ -1,39 +1,18 @@
 package aragon.unam.pruebas;
 
 import aragon.unam.estructuras.ListaDoblementeLigadaADT;
+import aragon.unam.estructuras.ListaDoblementeLigadaADT2DaVersion;
 import aragon.unam.estructuras.ListaLigadaADT;
 import aragon.unam.estructuras.Nodo;
 import aragon.unam.estructuras.NodoDoble;
 
 public class ClaseDePruebas {
 	public static void main(String[] args) {
-		boolean bandera = true;
-		ListaDoblementeLigadaADT<Integer> i = new ListaDoblementeLigadaADT<>();
-		i.agregarAlFinal(2);
-		i.transversal();
+		ListaDoblementeLigadaADT2DaVersion<Integer> i = new ListaDoblementeLigadaADT2DaVersion<>();
 		i.agregarAlInicio(1);
-		i.transversal();
-		i.agregarAlInicio(10);
-		i.transversal();
-		System.out.println("e");
-		i.agregarDespuesDe(10313,3);
-		i.transversal();
-		i.eliminar(2);
-		i.transversal();
 		i.eliminarElPrimero();
-		i.transversal();
-		i.eliminarElFinal();
-		i.transversal();
-		System.out.println(i.buscarElemento(1));
-		i.actualizar(1, 100000);
-		i.transversal();
-		i.agregarAlFinal(2);
-		i.agregarAlFinal(3);
-		i.agregarAlFinal(4);
-		i.transversal();
-		i.actualizar(4, 100);
-		i.transversal();
-		System.out.println(i.buscarElemento(100));
+		System.out.println(i.getTamanio());
+		i.transversal(true);
 	}
 	
 }
