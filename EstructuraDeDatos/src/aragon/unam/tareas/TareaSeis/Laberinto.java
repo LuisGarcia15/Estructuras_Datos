@@ -69,7 +69,7 @@ public class Laberinto{
 						break;
 				}
 			}
-			System.out.println(this.laberinto.toString());
+			br.close();
 		} catch (IOException e) {
 			System.out.println("No se encontro el archivo");
 		}
@@ -92,8 +92,8 @@ public class Laberinto{
 	}
 
 	public  void evaluarReglas(int filas, int columnas) {
-		int filasEvaluar, columnasEvaluar, contador = 1, contadorParedes = 0;
-		String casilla;
+		int filasEvaluar, columnasEvaluar, contador = 1;
+		String casilla = "";
 		boolean salida = true;
 		while(salida) {
 			switch (contador) {
@@ -101,84 +101,28 @@ public class Laberinto{
 				filasEvaluar = filas;
 				columnasEvaluar = columnas;
 				columnasEvaluar++;
-				if(filasEvaluar >= 0 && filasEvaluar <= (this.laberinto.getFilas()-1) &&
-						columnasEvaluar >= 0 && columnasEvaluar <= (this.laberinto.getColumnas()-1)) {
-					casilla = this.laberinto.getElemento(filasEvaluar, columnasEvaluar);
-					if(casilla.equals("M")) {
-						if(this.isMeta(filas, columnas, filasEvaluar, columnasEvaluar)) {
-							this.fin = !this.fin;
-							salida = !salida;
-						}
-					}else {
-						if(casilla.equals(" ")) {
-						this.avanzar(filas, columnas, filasEvaluar, columnasEvaluar);
-						salida = !salida;
-						}
-					}
-				}
+				salida = this.evaluacionDeCasilla(filas, columnas, filasEvaluar, columnasEvaluar, casilla);
 				contador++;
 				break;
 			case 2:
 				filasEvaluar = filas;
 				columnasEvaluar = columnas;
 				filasEvaluar--;
-				if(filasEvaluar >= 0 && filasEvaluar <= (this.laberinto.getFilas()-1) &&
-						columnasEvaluar >= 0 && columnasEvaluar <= (this.laberinto.getColumnas()-1)) {
-					casilla = this.laberinto.getElemento(filasEvaluar, columnasEvaluar);
-					if(casilla.equals("M")) {
-						if(this.isMeta(filas, columnas, filasEvaluar, columnasEvaluar)) {
-							this.fin = !this.fin;
-							salida = !salida;
-						}
-					}else {
-						if(casilla.equals(" ")) {
-						this.avanzar(filas, columnas, filasEvaluar, columnasEvaluar);
-						salida = !salida;
-						}
-					}
-				}
+				salida = this.evaluacionDeCasilla(filas, columnas, filasEvaluar, columnasEvaluar, casilla);
 				contador++;
 				break;
 			case 3:
 				filasEvaluar = filas;
 				columnasEvaluar = columnas;
 				columnasEvaluar--;
-				if(filasEvaluar >= 0 && filasEvaluar <= (this.laberinto.getFilas()-1) &&
-						columnasEvaluar >= 0 && columnasEvaluar <= (this.laberinto.getColumnas()-1)) {
-					casilla = this.laberinto.getElemento(filasEvaluar, columnasEvaluar);
-					if(casilla.equals("M")) {
-						if(this.isMeta(filas, columnas, filasEvaluar, columnasEvaluar)) {
-							this.fin = !this.fin;
-							salida = !salida;
-						}
-					}else {
-						if(casilla.equals(" ")) {
-						this.avanzar(filas, columnas, filasEvaluar, columnasEvaluar);
-						salida = !salida;
-						}
-					}
-				}
+				salida = this.evaluacionDeCasilla(filas, columnas, filasEvaluar, columnasEvaluar, casilla);
 				contador++;
 				break;
 			case 4:
 				filasEvaluar = filas;
 				columnasEvaluar = columnas;
 				filasEvaluar++;
-				if(filasEvaluar >= 0 && filasEvaluar <= (this.laberinto.getFilas()-1) &&
-						columnasEvaluar >= 0 && columnasEvaluar <= (this.laberinto.getColumnas()-1)) {
-					casilla = this.laberinto.getElemento(filasEvaluar, columnasEvaluar);
-					if(casilla.equals("M")) {
-						if(this.isMeta(filas, columnas, filasEvaluar, columnasEvaluar)) {
-							this.fin = !this.fin;
-							salida = !salida;
-						}
-					}else {
-						if(casilla.equals(" ")) {
-						this.avanzar(filas, columnas, filasEvaluar, columnasEvaluar);
-						salida = !salida;
-						}
-					}
-				}
+				salida = this.evaluacionDeCasilla(filas, columnas, filasEvaluar, columnasEvaluar, casilla);
 				contador++;
 				break;
 			case 5:
@@ -202,7 +146,7 @@ public class Laberinto{
 		this.laberinto.setElemento("L", filasEvaluadas, columnasEvaluadas);
 		this.laberinto.setElemento("#", filas, columnas);
 		this.pila.push(filasEvaluadas + "," + columnasEvaluadas);
-		System.out.println(this.laberinto.toString());
+		System.out.print(this.laberinto.toString());
 		System.out.println("*******************************");
 		return this.coordenadas.getItem(2) == filasEvaluadas && 
 				this.coordenadas.getItem(3) == columnasEvaluadas;
@@ -227,5 +171,23 @@ public class Laberinto{
 		System.out.println("*******************************");
 	}
 	
+	private boolean evaluacionDeCasilla(int filas, int columnas, int filasEvaluar, int columnasEvaluar, String casilla) {
+		if(filasEvaluar >= 0 && filasEvaluar <= (this.laberinto.getFilas()-1) &&
+				columnasEvaluar >= 0 && columnasEvaluar <= (this.laberinto.getColumnas()-1)) {
+			casilla = this.laberinto.getElemento(filasEvaluar, columnasEvaluar);
+			if(casilla.equals("M")) {
+				if(this.isMeta(filas, columnas, filasEvaluar, columnasEvaluar)) {
+					this.fin = !this.fin;
+					return false;
+				}
+			}else {
+				if(casilla.equals(" ")) {
+				this.avanzar(filas, columnas, filasEvaluar, columnasEvaluar);
+				return false;
+				}
+			}
+		}
+		return true;
+	}
 	
 }

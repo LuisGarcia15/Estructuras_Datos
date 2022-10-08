@@ -9,6 +9,8 @@ public class Juego {
 	
 	public void iniciaJuego() {
 		String coordenadas;
+		System.out.println("LABERINTO");
+		System.out.println(this.laberinto.getLaberinto().toString());
 		while(laberinto.isFin()) {
 			coordenadas = laberinto.getPila().peek();
 			this.laberinto.evaluarReglas(Integer.parseInt(coordenadas.substring(0, 1)), 
