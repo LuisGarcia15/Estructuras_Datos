@@ -105,25 +105,14 @@ public class Laberinto{
 						columnasEvaluar >= 0 && columnasEvaluar <= (this.laberinto.getColumnas()-1)) {
 					casilla = this.laberinto.getElemento(filasEvaluar, columnasEvaluar);
 					if(casilla.equals("M")) {
-						//this.isMeta(filas, columnas, filasEvaluar, columnasEvaluar);
 						if(this.isMeta(filas, columnas, filasEvaluar, columnasEvaluar)) {
 							this.fin = !this.fin;
 							salida = !salida;
 						}
-						//salida = !salida;
 					}else {
 						if(casilla.equals(" ")) {
 						this.avanzar(filas, columnas, filasEvaluar, columnasEvaluar);
 						salida = !salida;
-						}else {
-							if(casilla.equals("0")) {
-								contadorParedes++;
-								if(contadorParedes == 4) {
-									this.fin = !this.fin;
-									salida = !salida;
-									System.out.println("Laberinto sin solucion");
-								}
-							}
 						}
 					}
 				}
@@ -145,15 +134,6 @@ public class Laberinto{
 						if(casilla.equals(" ")) {
 						this.avanzar(filas, columnas, filasEvaluar, columnasEvaluar);
 						salida = !salida;
-						}else {
-							if(casilla.equals("0")) {
-								contadorParedes++;
-								if(contadorParedes == 4) {
-									salida = !salida;
-									this.fin = !this.fin;
-									System.out.println("Laberinto sin solucion");
-								}
-							}
 						}
 					}
 				}
@@ -175,15 +155,6 @@ public class Laberinto{
 						if(casilla.equals(" ")) {
 						this.avanzar(filas, columnas, filasEvaluar, columnasEvaluar);
 						salida = !salida;
-						}else {
-							if(casilla.equals("0")) {
-								contadorParedes++;
-								if(contadorParedes == 4) {
-									salida = !salida;
-									this.fin = !this.fin;
-									System.out.println("Laberinto sin solucion");
-								}
-							}
 						}
 					}
 				}
@@ -205,24 +176,14 @@ public class Laberinto{
 						if(casilla.equals(" ")) {
 						this.avanzar(filas, columnas, filasEvaluar, columnasEvaluar);
 						salida = !salida;
-						}else {
-							if(casilla.equals("0")) {
-								contadorParedes++;
-								if(contadorParedes == 4) {
-									salida = !salida;
-									this.fin = !this.fin;
-									System.out.println("Laberinto sin solucion");
-								}
-							}
 						}
 					}
 				}
 				contador++;
 				break;
 			case 5:
-				if(this.pila.isEmpty()) {
+				if(this.pila.length() != 1) {
 					this.retroceder();
-					System.out.println(this.pila.toString());
 					salida = !salida;	
 				}
 				contador++;
@@ -242,6 +203,7 @@ public class Laberinto{
 		this.laberinto.setElemento("#", filas, columnas);
 		this.pila.push(filasEvaluadas + "," + columnasEvaluadas);
 		System.out.println(this.laberinto.toString());
+		System.out.println("*******************************");
 		return this.coordenadas.getItem(2) == filasEvaluadas && 
 				this.coordenadas.getItem(3) == columnasEvaluadas;
 	}
@@ -251,6 +213,7 @@ public class Laberinto{
 		this.laberinto.setElemento("#", filas, columnas);
 		this.pila.push(filasEvaluadas + "," + columnasEvaluadas);
 		System.out.println(this.laberinto.toString());
+		System.out.println("*******************************");
 	}
 	
 	public void retroceder() {
@@ -261,6 +224,7 @@ public class Laberinto{
 		this.laberinto.setElemento("L", Integer.parseInt(this.pila.peek().substring(0, 1)), 
 				Integer.parseInt(this.pila.peek().substring(2, 3)));
 		System.out.println(this.laberinto.toString());
+		System.out.println("*******************************");
 	}
 	
 	
