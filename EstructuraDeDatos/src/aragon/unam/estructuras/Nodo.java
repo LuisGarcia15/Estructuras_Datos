@@ -1,6 +1,8 @@
 package aragon.unam.estructuras;
 
-public class Nodo<T> {
+import java.util.Iterator;
+
+public class Nodo<T>{
     private T dato;
     private Nodo<T> siguiente;
     
@@ -40,4 +42,20 @@ public class Nodo<T> {
     public String printAll(){
         return "[Dato = " + dato + "] -> [Siguiente : " + this.getSiguiente() + "]";
     }
+
+   /* @Override
+	public Iterator<T> iterator() {
+		return new Iterator() {
+			@Override
+			public boolean hasNext() {
+				return siguiente.getDato() != null;
+			}
+
+			@Override
+			public T next() {
+				return siguiente.getDato();
+			}
+			
+		};
+	*/
 }

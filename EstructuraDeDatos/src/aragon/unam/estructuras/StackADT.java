@@ -1,7 +1,6 @@
 package aragon.unam.estructuras;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class StackADT <T>{
 	ArrayList<T> pila;
@@ -45,12 +44,19 @@ public class StackADT <T>{
 		if(this.pila.isEmpty()) {
 			pila += "| | \n";
 		}else {
-		Iterator<T> iterator = this.pila.iterator();
-		while(iterator.hasNext()) {
-			pila += "|" + iterator.next() + "| \n";
-		}
+		@SuppressWarnings("unchecked")
+		ArrayList<T> copiaPila = (ArrayList<T>) this.pila.clone();
+		String []matriz = new String[copiaPila.size()];
+		int contador = matriz.length, contador2 = 0;
+		for(int i = contador; i > 0; i--) {
+			matriz[contador2] = String.valueOf(copiaPila.get(copiaPila.size()-1));
+			copiaPila.remove(copiaPila.size()-1);
+			contador2++;
+			}
+		for (String s : matriz) {
+			pila += "|" + s + "| \n";
+			}
 		}
 		return pila;
 	}
-	
 }

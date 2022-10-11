@@ -147,7 +147,9 @@ public class Laberinto{
 		this.laberinto.setElemento("#", filas, columnas);
 		this.pila.push(filasEvaluadas + "," + columnasEvaluadas);
 		System.out.print(this.laberinto.toString());
-		System.out.println("*******************************");
+		this.imprimirCaracteres("*******************************");
+		this.imprimirCaracteres("---Coordenadas en la PILA---");
+		System.out.println(this.pila);
 		return this.coordenadas.getItem(2) == filasEvaluadas && 
 				this.coordenadas.getItem(3) == columnasEvaluadas;
 	}
@@ -157,7 +159,7 @@ public class Laberinto{
 		this.laberinto.setElemento("#", filas, columnas);
 		this.pila.push(filasEvaluadas + "," + columnasEvaluadas);
 		System.out.println(this.laberinto.toString());
-		System.out.println("*******************************");
+		this.imprimirCaracteres("*******************************");
 	}
 	
 	public void retroceder() {
@@ -168,7 +170,7 @@ public class Laberinto{
 		this.laberinto.setElemento("L", Integer.parseInt(this.pila.peek().substring(0, 1)), 
 				Integer.parseInt(this.pila.peek().substring(2, 3)));
 		System.out.println(this.laberinto.toString());
-		System.out.println("*******************************");
+		this.imprimirCaracteres("*******************************");
 	}
 	
 	private boolean evaluacionDeCasilla(int filas, int columnas, int filasEvaluar, int columnasEvaluar, String casilla) {
@@ -188,6 +190,11 @@ public class Laberinto{
 			}
 		}
 		return true;
+	}
+	
+	private void imprimirCaracteres(String caracter) {
+		System.out.printf("%" + (this.laberinto.getFilas()*5) + "s %n", caracter);
+		
 	}
 	
 }

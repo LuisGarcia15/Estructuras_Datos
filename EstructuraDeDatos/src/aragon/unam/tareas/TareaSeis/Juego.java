@@ -9,7 +9,7 @@ public class Juego {
 	
 	public void iniciaJuego() {
 		String coordenadas;
-		System.out.println("LABERINTO");
+		System.out.printf("%" + (this.laberinto.getLaberinto().getFilas()*5) + "s %n", "LABERINTO");
 		System.out.println(this.laberinto.getLaberinto().toString());
 		while(laberinto.isFin()) {
 			coordenadas = laberinto.getPila().peek();
