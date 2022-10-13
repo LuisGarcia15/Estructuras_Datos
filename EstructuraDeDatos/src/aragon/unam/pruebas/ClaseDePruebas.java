@@ -10,7 +10,7 @@ import aragon.unam.estructuras.StackADT2;
 public class ClaseDePruebas {
 	public static void main(String[] args) {
 		StackADT2<Integer> i = new StackADT2<>();
-		
+
 		System.out.println("esta vacia?");
 		System.out.println(i.isEmpty());
 		System.out.println(i);
@@ -18,7 +18,25 @@ public class ClaseDePruebas {
 		i.push(2);
 		i.push(3);
 		i.push(4);
-		System.out.println("esta vacia?");
+		System.out.println("peek(): " + i.peek());
+		System.out.println(i);
+		i.push(5);
+		System.out.println("peek() 1: " + i.peek());
+		System.out.println(i);
+		i.push(6);
+		System.out.println("peek() 2: " + i.peek());
+		System.out.println(i);
+		i.push(7);
+		System.out.println("peek() 3: " + i.peek());
+		System.out.println(i);
+		i.push(8);
+		System.out.println("peek() 4: " + i.peek());
+		System.out.println(i);
+		i.push(9);
+		System.out.println("peek() 5: " + i.peek());
+		i.push(10);
+		System.out.println(i);
+		/*System.out.println("esta vacia?");
 		System.out.println(i.isEmpty());
 		System.out.println(i);
 		System.out.println("longitud");
@@ -30,10 +48,10 @@ public class ClaseDePruebas {
 		System.out.println("peek: " + i.peek());
 		System.out.println(i);
 		System.out.println("push");
-			i.push(5);
+			i.push(1000000);
 		System.out.println(i);
 		System.out.println("toSring");
-		System.out.println(i);
+		System.out.println(i);*/
 		}
 	
 }

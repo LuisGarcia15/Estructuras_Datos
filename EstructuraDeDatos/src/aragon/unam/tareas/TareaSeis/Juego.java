@@ -1,7 +1,7 @@
 package aragon.unam.tareas.TareaSeis;
 
 public class Juego {
-	private Laberinto laberinto = new Laberinto();
+	private Laberinto2 laberinto = new Laberinto2();
 
 	public Juego() {
 

@@ -1,7 +1,5 @@
 package aragon.unam.estructuras;
 
-import java.util.ArrayList;
-
 public class StackADT2 <T>{
 	ListaLigadaADT<T> pila;
 
@@ -28,7 +26,7 @@ public class StackADT2 <T>{
 		int contador = 0;
 		if(!this.pila.estaVacia()) {
 		for (T t : pila) {
-				if(contador == this.pila.getTamanio()) {
+				if(contador == (this.pila.getTamanio()-1)) {
 					return t;
 				}
 				contador++;
@@ -51,6 +49,9 @@ public class StackADT2 <T>{
 		int contador2 = 1;
 		while(contador > 0) {
 			for (T t : this.pila) {
+				if(t == null) {
+					break;
+				}
 				if(contador2 == contador) {
 					pila += "|" + t + "| \n";
 					contador--;

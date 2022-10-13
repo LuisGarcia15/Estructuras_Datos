@@ -10,6 +10,7 @@ public class ListaLigadaADT<T> implements Iterable<T>{
 
 	public ListaLigadaADT() {
 		this.head = null;
+		this.aux = null;
 		this.tamanio = 0;
 	}
 
@@ -164,7 +165,7 @@ public class ListaLigadaADT<T> implements Iterable<T>{
 		return new Iterator() {
 			@Override
 			public boolean hasNext() {
-				return aux != null;
+				return aux != null;	
 			}
 
 			@Override
