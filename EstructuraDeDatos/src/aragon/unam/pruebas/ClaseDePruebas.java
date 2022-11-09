@@ -34,6 +34,7 @@ public class ClaseDePruebas {
 		System.out.println(i);
 		i.push(9);
 		System.out.println("peek() 5: " + i.peek());
+		System.out.println(i);
 		i.push(10);
 		System.out.println(i);
 		/*System.out.println("esta vacia?");
