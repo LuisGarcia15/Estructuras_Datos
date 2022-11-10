@@ -3,7 +3,6 @@ package aragon.unam.estructuras;
 public class ColaAcotadaADT <T>{
 	private ListaLigadaADT<ListaLigadaADT<T>> colaAcotada;
 	private int tamanio;
-	private boolean esVacia = true;
 	
 	public ColaAcotadaADT(int prioridad) {
 		this.colaAcotada = new ListaLigadaADT<>();
@@ -14,7 +13,7 @@ public class ColaAcotadaADT <T>{
 	}
 	
 	public boolean isEmpty() {
-		return esVacia;
+		return tamanio == 0? true: false;
 	}
 	
 	public int length() {
@@ -25,7 +24,6 @@ public class ColaAcotadaADT <T>{
 		int contador = 0;
 		for (ListaLigadaADT<T> colaAcotada : colaAcotada) {
 			if(contador == prioridad) {
-				esVacia = true;
 				colaAcotada.agregarAlFinal(elemento);
 				this.tamanio++;
 				break;

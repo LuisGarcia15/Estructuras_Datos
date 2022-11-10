@@ -8,8 +8,14 @@ public class Barco {
 		String personas[] = {"Maestre", "Ninios", "Mecanico"
 				, "Mujeres", "3era Edad", "Ninias", "Hombres"
 				, "Vigia", "Capitan", "Timonel"};
+		String personajes = "";
 		
+		for (int i = 0; i < personas.length; i++) {
+			personajes += "|" + personas[i] + "| ";
+		}
+	
 		System.out.printf("%50s %n","Prueba de ColaAcotadaADT - Tarea 8");
+		System.out.println(personajes);
 		System.out.println("-------------------------");
 		System.out.println(barco);
 		System.out.println("-------------------------");
