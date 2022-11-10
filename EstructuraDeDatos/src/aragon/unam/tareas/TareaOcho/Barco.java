@@ -71,4 +71,5 @@ public class Barco {
 		System.out.println("Elemento recuperado: " + barco.dequeue());
 		System.out.println(barco);
 	}
+	
 }
