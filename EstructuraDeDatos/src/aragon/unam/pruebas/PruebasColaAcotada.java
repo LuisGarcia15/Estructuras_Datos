@@ -11,28 +11,28 @@ public class PruebasColaAcotada {
 		System.out.println("Esta vacia?: " + cola.isEmpty());
 		System.out.println(cola);
 		
-		cola.enqueue(1, "Luis");
+		cola.enqueue(1, "Perro");
 		System.out.println("Tamanio: " + cola.length());
 		System.out.println("Esta vacia?: " + cola.isEmpty());
 		System.out.println(cola);
 		
-		cola.enqueue(1, "Gustavo");
+		cola.enqueue(1, "Gato");
 		System.out.println("Tamanio: " + cola.length());
 		System.out.println(cola); 
 		
-		cola.enqueue(2, "Jose");
+		cola.enqueue(2, "Vaca");
 		System.out.println("Tamanio: " + cola.length());
 		System.out.println(cola);
 		
-		cola.enqueue(2, "Garcia");
+		cola.enqueue(2, "Oveja");
 		System.out.println("Tamanio: " + cola.length());
 		System.out.println(cola);
 		
-		cola.enqueue(3, "Elena");
+		cola.enqueue(3, "Raton");
 		System.out.println("Tamanio: " + cola.length());
 		System.out.println(cola);
 		
-		cola.enqueue(3, "Lara");
+		cola.enqueue(3, "Gusano");
 		System.out.println("Tamanio: " + cola.length());
 		System.out.println(cola);
 		
