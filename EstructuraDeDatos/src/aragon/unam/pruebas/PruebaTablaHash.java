@@ -21,6 +21,7 @@ public class PruebaTablaHash {
 		System.out.println(prueba);
 		System.out.printf("%31S %n","probando el metodo valueOf()");
 		System.out.println("Obteniendo valor de llave \"dos\": " + prueba.valueOf("dos"));
+		System.out.println(prueba);
 		System.out.println("Obteniendo valor de llave \"cuatro\": " + prueba.valueOf("cuatro"));
 		System.out.println("Obteniendo valor de llave \"seis\": " + prueba.valueOf("seis"));
 		System.out.println("Obteniendo valor de llave \"ocho\": " + prueba.valueOf("ocho"));
