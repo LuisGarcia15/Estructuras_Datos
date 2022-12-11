@@ -27,16 +27,23 @@ public class StackPrueba {
 		
 		switch (eleccion) {
 		case 1:
+			/*ingresar un dato al final de la lista contenida en el atributo del objeto
+			 * que contiene la lista de tipo ArrayList con el método add()*/
 			numero = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese un numero:"));
 			caja.getLista().add(numero);
 			break;
 		case 2:
+			/*Suma todos los números cotenidos en el atributo del objeto que contiene la lista
+			 * de tipo ArrayList*/
 			for (int i = 0; i < caja.getLista().size(); i++) {
 				suma += caja.getLista().get(i);
 			}
 			JOptionPane.showMessageDialog(null, "La suma de la lista es: " + suma);
 			break;
 		case 3:
+			/*Permite guardar un estado del objeto que simula las caracteristicas de Git, junto con
+			 * una descripción de los cambios guardados en el objeto Stack mediante el método
+			 * push()*/
 			ObjetoParaGuardarInformacion auxiliarDos = new ObjetoParaGuardarInformacion();
 			String mensaje = JOptionPane.showInputDialog(null, "Incluya una breve descripción para guardar el estado del objeto");
 			caja.setDescripcion(mensaje);
@@ -47,6 +54,8 @@ public class StackPrueba {
 			bitacora.push(auxiliarDos);
 			break;
 		case 4:
+			/*Elimina el último estado del objeto guardado en el objeto Stack que se encuentra en la cima
+			 * del objeto Stack y devuelve ese objeto eliminado esto mediante el método pop()*/
 			bitacora.pop();
 			if(bitacora.isEmpty()) {
 				caja.getLista().clear();
@@ -63,9 +72,14 @@ public class StackPrueba {
 			}
 			break;
 		case 5:
+			/*Devuelve un valor booleano, dependera de true o false si el objeto Stack esta vacio con
+			 * el método isEmpty()*/
 			JOptionPane.showMessageDialog(null, "La pila esta vacia?\n" + bitacora.isEmpty());
 			break;
 		case 6:
+			/*Informa acerca del último cambio realizado en el atributo del objeto que contiene la lista
+			 * de tipo ArrayList obteniendo pero no eliminado el objeto que se encuentra en la parte 
+			 * superior del Objeto Stack*/
 			if(bitacora.isEmpty()) {
 				JOptionPane.showMessageDialog(null, "No hay descripción guardada");
 			}else {

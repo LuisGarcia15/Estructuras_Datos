@@ -55,7 +55,7 @@ public class LinkedListPrueba {
 				listaLigada.addFirst(elemento);
 				break;
 			case 4:
-				/*Ingresa un elemento al inicio de la lista con el método addLast(elemento)*/
+				/*Ingresa un elemento al final de la lista con el método addLast(elemento)*/
 				elemento = ingresaNumero();
 				listaLigada.addLast(elemento);
 				break;
