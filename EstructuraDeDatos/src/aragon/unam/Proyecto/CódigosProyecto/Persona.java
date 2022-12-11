@@ -1,4 +1,4 @@
-package aragon.unam.tareas.CódigosProyecto;
+package aragon.unam.Proyecto.CódigosProyecto;
 
 public class Persona implements Comparable<Persona>{
 	private String nombre;
