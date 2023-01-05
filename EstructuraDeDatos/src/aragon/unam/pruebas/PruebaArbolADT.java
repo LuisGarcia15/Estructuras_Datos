@@ -10,7 +10,7 @@ public class PruebaArbolADT {
 		arbol.insert(60);
 		arbol.insert(40);
 		
-		representacion = arbol.transversal(3);
+		representacion = arbol.transversal(2);
 		
 		System.out.println(representacion);
 			
