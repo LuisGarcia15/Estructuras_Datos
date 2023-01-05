@@ -6,6 +6,13 @@ public class NodoArbol<T>{
     private NodoArbol<T> nodoDerecho;
     
     public NodoArbol() {
+    	this.dato = null;
+    	this.nodoIzquierdo = null;
+    	this.nodoDerecho =  null;
+    }
+    
+    public boolean estaVacio() {
+    	return dato == null;
     }
 
     public NodoArbol(T valor) {
