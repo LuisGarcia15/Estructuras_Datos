@@ -23,18 +23,23 @@ public class ArbolBinarioADT {
 			} else {
 				num = auxDos.getDato();
 				if (valor > num) {
-					auxDos = auxUno;
+					//auxDos = auxUno;
+					if(auxUno.getNodoDerecho() == null) {
 					auxUno.setNodoDerecho(new NodoArbol<>());
+					}
 					auxUno = auxUno.getNodoDerecho();
+					auxDos = auxUno;
 				} else {
 					if (valor < num) {
-						auxDos = auxUno;
-						auxUno.setNodoIzquierdo(new NodoArbol<>());
+						if(auxUno.getNodoIzquierdo() == null) {
+							auxUno.setNodoIzquierdo(new NodoArbol<>());
+							}
 						auxUno = auxUno.getNodoIzquierdo();
+						auxDos = auxUno;
 					} else {
 						break;
+						}
 					}
-				}
 			}
 		}
 	}
@@ -54,12 +59,12 @@ public class ArbolBinarioADT {
 				if(auxUno.getNodoDerecho() != null | auxUno.getNodoIzquierdo() != null) {
 				num = auxDos.getDato();
 				if (valor > num) {
-					auxDos = auxUno;
 					auxUno = auxUno.getNodoDerecho();
+					auxDos = auxUno;
 				} else {
 					if (valor < num) {
-						auxDos = auxUno;
 						auxUno = auxUno.getNodoIzquierdo();
+						auxDos = auxUno;
 					} 
 					}
 				}else {
