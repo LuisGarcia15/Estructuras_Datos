@@ -1,4 +1,4 @@
-package aragon.unam.Proyecto.CódigosProyecto;
+package aragon.unam.Proyecto.CodigosProyecto;
 
 import java.util.ArrayList;
 

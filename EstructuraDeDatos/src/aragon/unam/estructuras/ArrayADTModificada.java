@@ -7,8 +7,8 @@ public class ArrayADTModificada<T> {
 	private ArrayList<ListaLigadaADTModificada<T>> datos;
 	private int numeroDeElementos;
 
-	public ArrayADTModificada(int tamaño) {
-		this.tamanio = tamaño;
+	public ArrayADTModificada(int tamanio) {
+		this.tamanio = tamanio;
 		this.datos = new ArrayList<ListaLigadaADTModificada<T>>();
 
 		for (int i = 0; i < this.tamanio; i++) {

@@ -6,8 +6,8 @@ public class ArrayADT<T> {
 	private int tamanio;
 	private ArrayList<T> datos;
 
-	public ArrayADT(int tamaño) {
-		this.tamanio = tamaño;
+	public ArrayADT(int tamanio) {
+		this.tamanio = tamanio;
 		this.datos = new ArrayList<T>();
 
 		for (int i = 0; i < this.tamanio; i++) {
